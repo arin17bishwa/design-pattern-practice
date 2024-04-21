@@ -30,7 +30,7 @@ class BaseResourcePool:
     def init_resource(self, **kwargs) -> Resource: ...
 
     @contextmanager
-    def acquire(self, timeout: Optional[float] = None) -> Resource:
+    def acquire(self, timeout: Optional[float] = 30) -> Resource:
         resource: Optional[Resource] = None
         try:
             resource = self._acquire_resource(timeout=timeout)
