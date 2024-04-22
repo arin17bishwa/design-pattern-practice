@@ -42,8 +42,8 @@ class BaseResourcePool:
                 self._release_resource(resource)
 
     def _acquire_resource(self, timeout: Optional[float]) -> Resource:
-        if (timeout is None) or (timeout == 0):
-            return self.resource_pool.get(block=False)
+        # if (timeout is None) or (timeout == 0):
+        #     return self.resource_pool.get(block=True)
         return self.resource_pool.get(block=True, timeout=timeout)
 
     def _release_resource(self, resource: Resource):
